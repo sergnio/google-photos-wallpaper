@@ -35,10 +35,16 @@ nextPageToken = 'one'
 
 photosRequest = service.mediaItems().search(body={'albumId': travel_album_id})
 
+allPhotos = []
+
 while photosRequest is not None:
     photosResponse = photosRequest.execute()
-    photosToken = photosResponse['nextPageToken']
-    print('Token {0}'.format(photosToken))
+    photos = photosResponse['mediaItems']
+    print('photos list {0}'.format(photos))
+    onlyImages = [p for p in photos if p['mimeType']== 'image/jpeg' ]
+    print('Only Images {0}'.format(len(onlyImages)))
+    print('Photos {0}'.format(len(photos)))
+    allPhotos = allPhotos + photos
     photosRequest = service.mediaItems().list_next(photosRequest,photosResponse)
 
 photosForToday = random.sample(range(0, photosResponse - 1), 20)
