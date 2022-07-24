@@ -6,6 +6,8 @@ import random
 import json
 import time
 
+albumName = input('What is your album name? (the name must exactly match):')
+
 pd.set_option('display.max_columns', 100)
 pd.set_option('display.max_rows', 150)
 pd.set_option('display.max_colwidth', 150)
@@ -22,7 +24,7 @@ service = Create_Service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
 myAlbums = service.albums().list().execute()
 myAlbums_list = myAlbums.get('albums')
 dfAlbums = pd.DataFrame(myAlbums_list)
-travel_album_id = dfAlbums[dfAlbums['title'] == 'Best Photos for make benefit good slideshow display on the Google Hub']['id'].to_string(index=False).strip()
+travel_album_id = dfAlbums[dfAlbums['title'] == albumName]['id'].to_string(index=False).strip()
 
 def download_file(url:str, destination_folder:str, file_name:str):
   response = requests.get(url)
