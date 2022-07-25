@@ -8,3 +8,8 @@
 11. Install cron job\
   a. crontab -e
   b. 
+
+// needs this permission
+sudo chmod 600 com.buddy.background.plist
+// nice command to check if it's a valid plist
+plutil -lint filename
