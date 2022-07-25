@@ -13,3 +13,7 @@
 sudo chmod 600 com.buddy.background.plist
 // nice command to check if it's a valid plist
 plutil -lint filename
+// to launch the plist
+sudo launchctl bootstrap system com.buddy.background.plist
+// if you need to restart it, use this, then run bootstrap again
+sudo launchctl bootout system com.buddy.background.plist
