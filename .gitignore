@@ -1,0 +1,6 @@
+credentials.json
+log.txt
+stderr.log
+stdout.log
+__pycache__/
+main/
