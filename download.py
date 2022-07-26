@@ -14,6 +14,7 @@ def gioPrint(toPrint:str):
 config = None
 gioPrint('Reading config file')
 configLocation = 'config.json'
+
 # JSON file
 with open (configLocation, "r") as f:
     config = json.loads(f.read()) 
@@ -21,6 +22,19 @@ with open (configLocation, "r") as f:
 albumName = config['albumName']
 destination_folder = config['destinationFolder']
 gioPrint('Config successfully loaded')
+
+gioPrint('Deleting any images')
+for file in os.listdir(destination_folder):
+  if file.endswith('.jpg'):
+    print('Removing {0}'.format(file))
+    os.remove(os.path.join(destination_folder, file))
+  if file.endswith('.jpeg'):
+    print('Removing {0}'.format(file))
+    os.remove(folder + '/' + file)
+  if file.endswith('.png'):
+    print('Removing {0}'.format(file))
+    os.remove(folder + '/' + file)
+gioPrint('Deleted images in folder')
 
 pd.set_option('display.max_columns', 100)
 pd.set_option('display.max_rows', 150)
