@@ -1,4 +1,3 @@
-# Work in progress!
 ## MacOS Setup 
 1. Clone this repo\
   a. Install all dependencies using `python -m pip install -r requirements.txt`\
