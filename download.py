@@ -30,10 +30,10 @@ for file in os.listdir(destination_folder):
     os.remove(os.path.join(destination_folder, file))
   if file.endswith('.jpeg'):
     print('Removing {0}'.format(file))
-    os.remove(folder + '/' + file)
+    os.remove(destination_folder + '/' + file)
   if file.endswith('.png'):
     print('Removing {0}'.format(file))
-    os.remove(folder + '/' + file)
+    os.remove(destination_folder + '/' + file)
 gioPrint('Deleted images in folder')
 
 pd.set_option('display.max_columns', 100)
