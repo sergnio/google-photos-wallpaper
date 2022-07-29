@@ -34,27 +34,32 @@ Example `com.gphotos.wallpaper.plist`
   <dict>
 
     <key>Label</key>
-    <string>com.gphotos.wallpaper.plist</string>
+    <string>com.buddy.background.plist</string>
 
     <key>RunAtLoad</key>
     <true/>
 
-    <key>StartInterval</key>
-    <integer>86400</integer>
+    <key>StartCalendarInterval</key>
+    <dict>
+      <key>Hour</key>
+      <integer>8</integer>
+      <key>Minute</key>
+      <integer>17</integer>
+    </dict>
 
     <key>StandardErrorPath</key>
-    <string>YOUR-PATH-HERE/google-photos-wallpaper/stderr.log</string>  <-- replace this with your path where you installed this repo
+    <string>/Users/sergnio/projects/gphotoswallpaper/stderr.log</string>
 
     <key>StandardOutPath</key>
-    <string>YOUR-PATH-HERE/google-photos-wallpaper/stdout.log</string>  <-- replace this with your path where you installed this repo
+    <string>/Users/sergnio/projects/gphotoswallpaper/stdout.log</string>
 
     <key>WorkingDirectory</key>
-    <string>YOUR-PATH-HERE/google-photos-wallpaper</string> <-- replace this with your path where you installed this repo
+    <string>/Users/sergnio/projects/gphotoswallpaper</string>
 
     <key>ProgramArguments</key>
       <array>
-        <string>/opt/homebrew/bin/python3</string> <-- I used homebrew to install python, so point to whichever directory works for you
-        <string>YOUR-PATH-HERE/google-photos-wallpaper/download.py</string>
+        <string>/opt/homebrew/bin/python3</string>
+        <string>/Users/sergnio/projects/gphotoswallpaper/download.py</string>
       </array>
 
   </dict>
@@ -63,8 +68,8 @@ Example `com.gphotos.wallpaper.plist`
 
 ## Troubleshooting
 **Change the frequency**\
-In your `com.gphotos.wallpaper.plist` file, just change `StartInterval` value to something something else in seconds, and also change your frequency in your desktop & screensavers app on your mac.\
-e.g. running it every hour would be **3600** instead of **86400** (60 [seconds] * 60 [minutes] = 3600 [seconds])
+In your `com.gphotos.wallpaper.plist` file, just change the `Hour` and `Minute` values to whatever time you want!\
+Note: you must use 24 hour time (which is superior anyway)
 
 **Stopping the daemon**\
 Just run `sudo launchctl bootout gui/501 com.gphotos.wallpaper.plist` instead
