@@ -9,14 +9,15 @@
   a. As of July 24, 2022, this tutorial has a button that very easily allows you to: https://developers.google.com/photos/library/guides/get-started \
   b. Download the `credentials.json` file and place it in this same directory 
 1. Install this to run automatically on your computer \
-  a. `cd` to your `/Library/LaunchAgents` directory
-  **Note:** There is also a `/Users/{your-user}/Library/LaunchAgents/` directory. To my understanding, this will only apply this to your user, not to all users on the machine. Also, I'm not totally sure if it works when working out of this directory :) \
+  a. `cd` to your `/Library/LaunchDaemons` directory
+  **Note:** There is also a `/Users/{your-user}/Library/LaunchDaemons/` directory. To my understanding, this will only apply this to your user, not to all users on the machine. Also, I'm not totally sure if it works when working out of this directory, so be sure it's in the `/Library/LaunchDaemons` dir instead :) \
   b. Create a `plist` file which will be used by `launchd` to run automatically using: `touch com.gphotos.wallpaper.plist`. \
-  You can probably name it whatever you want, but this is what I used. \
+  You can probably name it whatever you want as long as it ends in `.plist`, but this is what I used. \
   c. `vim` into that file and copy the contents below \
   d. Update your path to be wherever you installed this repo. For me, the path I used was `/Users/sergnio/projects/google-photos-wallpaper` \
-  e. Update your path to wherever your python is installed. I used homebrew, so I used the location where homebrew installed it. \
-  f. FINALLY, let's run a command to properly run this automatically: `sudo launchctl bootstrap gui/501 com.gphotos.wallpaper.plist` 
+  e. Update your path to wherever your python is installed. I used homebrew, so I used the location where homebrew installed it. (/opt/homebrew/bin/python3) \
+  f. FINALLY, let's run a command to properly run this automatically: `sudo launchctl bootstrap gui/501 com.gphotos.wallpaper.plist`\
+  g. Congrats!! You've installed it. See the Troubleshooting for further.. well.. troubleshooting.
  
 Example `config.json`
 ```
